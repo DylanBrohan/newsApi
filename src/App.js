@@ -5,6 +5,7 @@ import NewsList from "./newsList.js";
 import Header from "./Header.js";
 
 import $ from "jquery";
+import axios from "axios";
 
 class App extends Component {
   constructor(props) {
