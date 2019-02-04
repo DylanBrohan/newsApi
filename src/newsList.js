@@ -1,10 +1,10 @@
-import React from "react";
-import { Card } from "react-bootstrap";
-import { Image } from "react-bootstrap";
+import React from "react"
+import { Card } from "react-bootstrap"
+import { Image } from "react-bootstrap"
 
 class NewsList extends React.Component {
   viewArticle() {
-    window.location.href = this.props.news.url;
+    window.location.href = this.props.news.url
   }
 
   render() {
@@ -37,4 +37,4 @@ class NewsList extends React.Component {
   }
 }
 
-export default NewsList;
+export default NewsList

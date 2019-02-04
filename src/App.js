@@ -3,6 +3,7 @@ import React, { Component } from "react"
 import "./App.css"
 import NewsList from "./newsList"
 import Header from "./Header"
+import Content from "./Content"
 
 import $ from "jquery"
 // import axios from "axios";
@@ -26,11 +27,12 @@ class App extends Component {
         const results = searchResults.articles
         // console.log(results[0]);
 
+        //Add each article into an array
         var newsLists = [];
 
         results.forEach(article => {
-          console.log(article.title)
-          const news = <NewsList key={article.id} news={article} />;
+          // console.log(article.title)
+          const news = <NewsList key={article.id} news={article} />
           newsLists.push(news)
         });
 
@@ -50,9 +52,9 @@ class App extends Component {
 
   render() {
     return (
-      <div className="container">
+      <div>
         <Header />
-
+        <div className = "container">
         <input
           style={{
             fontSize: 24,
@@ -67,6 +69,7 @@ class App extends Component {
         />
 
         {this.state.rows}
+        </div>
       </div>
     );
   }

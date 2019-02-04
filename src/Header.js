@@ -1,16 +1,8 @@
 import React from "react"
 
-import { Nav, Navbar, Form} from "react-bootstrap"
-import { FormControl } from "react-bootstrap"
+import { Nav, Navbar} from "react-bootstrap"
 
 class Header extends React.Component {
-
-  searchHandler(event) {
-    // console.log(event.target.value); // Log each key pressed
-    const searchTerm = event.target.value
-    this.searchNews(searchTerm)
-  }
-
 
   render() {
     return (
