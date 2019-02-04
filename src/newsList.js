@@ -1,5 +1,4 @@
 import React from "react";
-import { Button } from "react-bootstrap";
 import { Card } from "react-bootstrap";
 import { Image } from "react-bootstrap";
 
@@ -20,10 +19,14 @@ class NewsList extends React.Component {
                   <Card.Subtitle className="mb-2 text-muted">
                     {this.props.news.author}, {this.props.news.publishedAt}
                   </Card.Subtitle>
-                  <Card.Text>{this.props.news.description}</Card.Text>
+                  <Card.Text>{this.props.news.description}
+                  <Image style={{width:100, height:100}} src={this.props.news.urlToImage} roundedCircle />
+                  </Card.Text>
+                  
                   <Card.Link href={this.props.news.url}>
                     {this.props.news.source.name}
                   </Card.Link>
+                  
                 </Card.Body>
               </Card>
             </td>

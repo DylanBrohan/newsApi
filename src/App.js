@@ -1,18 +1,17 @@
-import React, { Component } from "react";
+import React, { Component } from "react"
 
-import "./App.css";
-import NewsList from "./newsList.js";
-import Header from "./Header.js";
+import "./App.css"
+import NewsList from "./newsList"
+import Header from "./Header"
 
-import $ from "jquery";
-import axios from "axios";
+import $ from "jquery"
+// import axios from "axios";
 
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
-
-    this.searchNews();
+    this.state = {}
+    this.searchNews()
   }
 
   searchNews(searchTerm) {
@@ -22,20 +21,20 @@ class App extends Component {
     $.ajax({
       url: urlString,
       success: searchResults => {
-        console.log("fetched data successfully");
+        console.log("fetched data successfully")
         // console.log(searchResults);
-        const results = searchResults.articles;
+        const results = searchResults.articles
         // console.log(results[0]);
 
         var newsLists = [];
 
         results.forEach(article => {
-          console.log(article.title);
+          console.log(article.title)
           const news = <NewsList key={article.id} news={article} />;
-          newsLists.push(news);
+          newsLists.push(news)
         });
 
-        this.setState({ rows: newsLists });
+        this.setState({ rows: newsLists })
       }
       // error: (xhr, status, err) => {
       //   console.log.error("Failed to fetch data");
@@ -45,19 +44,20 @@ class App extends Component {
 
   searchHandler(event) {
     // console.log(event.target.value); // Log each key pressed
-    const searchTerm = event.target.value;
-    this.searchNews(searchTerm);
+    const searchTerm = event.target.value
+    this.searchNews(searchTerm)
   }
 
   render() {
     return (
       <div className="container">
         <Header />
+
         <input
           style={{
             fontSize: 24,
             display: "block",
-            width: "99%",
+            width: "100%",
             paddingTop: 8,
             paddingBottom: 8,
             paddingLeft: 16
@@ -72,4 +72,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default App
