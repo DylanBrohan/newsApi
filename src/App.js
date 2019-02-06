@@ -12,7 +12,8 @@ class App extends Component {
     this.state = {
       sort: "no"
     };
-    this.componentDidMount();
+    const searchTerm = "";
+    this.componentDidMount(searchTerm);
   }
 
   componentDidMount(searchTerm, source) {

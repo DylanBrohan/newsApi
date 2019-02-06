@@ -7,7 +7,7 @@ import { Form, Container, Col, Row } from "react-bootstrap";
 
 import $ from "jquery";
 
-class TopHeadlines extends Component {
+class Sports extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -85,4 +85,4 @@ class TopHeadlines extends Component {
   }
 }
 
-export default TopHeadlines;
+export default Sports;
