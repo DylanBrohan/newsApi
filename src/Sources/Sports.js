@@ -1,12 +1,13 @@
-import "./Style/App.css";
-import ArticleCard from "./Components/ArticleCard";
+import "../Style/App.css";
+import ArticleCard from "../Components/ArticleCard";
+import SortRadioButton from "../Components/SortRadioButton";
 
 import React, { Component } from "react";
 import { Form, Container, Col, Row } from "react-bootstrap";
 
 import $ from "jquery";
 
-class App extends Component {
+class TopHeadlines extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -17,7 +18,9 @@ class App extends Component {
 
   componentDidMount(searchTerm, source) {
     const urlString =
-      "https://newsapi.org/v2/top-headlines?country=ie&apiKey=e2f6cea63beb4204b7034dc0764d542e&q=" +
+      "https://newsapi.org/v2/top-headlines?" +
+      source +
+      "&apiKey=e2f6cea63beb4204b7034dc0764d542e&q=" +
       searchTerm;
     $.ajax({
       url: urlString,
@@ -50,12 +53,10 @@ class App extends Component {
     });
   }
 
-  //Event Listener to changes in searchbar
-  //Value bounded to this
-  handleChange(e) {
+  handleChange(event) {
     // console.log(event.target.value); // Log each key pressed
-    const searchTerm = e.target.value;
-    const source = "country=ie";
+    const searchTerm = event.target.value;
+    const source = "country=ie&category=sports";
     this.componentDidMount(searchTerm, source);
   }
 
@@ -67,12 +68,15 @@ class App extends Component {
             <Form.Group as={Row}>
               <Col>
                 <Form.Control
-                  defaultValue=""
                   onChange={this.handleChange.bind(this)}
                   placeholder="Search a keyword"
                 />
               </Col>
             </Form.Group>
+            <SortRadioButton
+              handleChange={this.handleChange.bind(this)}
+              checked={this.state.sort}
+            />
           </Form>
           {this.state.rows}
         </Container>
@@ -81,4 +85,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default TopHeadlines;
