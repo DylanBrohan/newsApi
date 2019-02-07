@@ -1,5 +1,6 @@
 import "./Style/App.css";
 import ArticleCard from "./Components/ArticleCard";
+import Header from "./Components/Header";
 
 import React, { Component } from "react";
 
@@ -65,6 +66,7 @@ class App extends Component {
   render() {
     return (
       <div>
+        <Header></Header>
         <Container>
           <Form>
             <Form.Group as={Row}>

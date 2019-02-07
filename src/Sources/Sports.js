@@ -1,5 +1,6 @@
 import "../Style/App.css";
 import ArticleCard from "../Components/ArticleCard";
+import Header from "../Components/Header";
 
 import React, { Component } from "react";
 import { Form, Container, Col, Row, CardColumns } from "react-bootstrap";
@@ -64,6 +65,7 @@ class Sports extends Component {
   render() {
     return (
       <div>
+        <Header></Header>
         <Container>
           <Form>
             <Form.Group as={Row}>
