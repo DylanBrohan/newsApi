@@ -14,6 +14,7 @@ class Sports extends Component {
       sort: "no"
     };
     const searchTerm = "";
+    //source code for sports
     const source ="country=ie&category=sports&"
     this.componentDidMount(searchTerm, source);
   }
@@ -58,7 +59,7 @@ class Sports extends Component {
   handleChange(event) {
     // console.log(event.target.value); // Log each key pressed
     const searchTerm = event.target.value;
-    const source = "country=ie&category=sports";
+    const source = "country=ie&category=sports&";
     this.componentDidMount(searchTerm, source);
   }
 
@@ -68,7 +69,7 @@ class Sports extends Component {
         <Header></Header>
         <Container>
           <Form>
-            <Form.Group as={Row}>
+            <Form.Group as={Row} className="search-bar">
               <Col xs={{span: 8, offset: 2}}>
                 <Form.Control
                   defaultValue=""

@@ -6,6 +6,7 @@ import React, { Component } from "react";
 
 import { Form, Container, Col, Row, CardColumns } from "react-bootstrap";
 
+// import from jquery package
 import $ from "jquery";
 
 class App extends Component {
@@ -20,9 +21,13 @@ class App extends Component {
   }
 
   componentDidMount(searchTerm, source) {
+
+    // API source as variable of urlString
     const urlString =
       "https://newsapi.org/v2/top-headlines?"+source+"apiKey=e2f6cea63beb4204b7034dc0764d542e&q=" +
       searchTerm;
+
+    // jason file for ajax
     $.ajax({
       url: urlString,
       success: searchResults => {
@@ -31,17 +36,20 @@ class App extends Component {
         const results = searchResults.articles;
         // console.log(results[0]);
 
-        //Add each article into an array
         var articleList = [];
-
+        
+        //For each result 
         results.forEach(article => {
           // console.log(article.title)
+
+          // Each card created placed into news variable
           const news = (
             <ArticleCard
             key={article.title + article.urlToImg}
             news={article}
           />
           );
+          // push news to articleList array
           articleList.push(news);
         });
 
@@ -59,7 +67,7 @@ class App extends Component {
   handleChange(e) {
     // console.log(event.target.value); // Log each key pressed
     const searchTerm = e.target.value;
-    const source = "country=ie";
+    const source = "country=ie&";
     this.componentDidMount(searchTerm, source);
   }
 
@@ -68,13 +76,13 @@ class App extends Component {
       <div>
         <Header></Header>
         <Container>
-          <Form>
-            <Form.Group as={Row}>
-              <Col xs={{span: 8, offset: 2}}>
+          <Form className="search-bar">
+            <Form.Group as={Row} className="search-bar">
+              <Col xs={{span: 8, offset: 2}} >
                 <Form.Control
                   defaultValue=""
                   onChange={this.handleChange.bind(this)}
-                  placeholder="Search a keyword"
+                  placeholder="{}+'Search a keyword'"
                 />
               </Col>
             </Form.Group>
