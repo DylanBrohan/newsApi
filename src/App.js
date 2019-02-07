@@ -82,7 +82,7 @@ class App extends Component {
                 <Form.Control
                   defaultValue=""
                   onChange={this.handleChange.bind(this)}
-                  placeholder="{}+'Search a keyword'"
+                  placeholder="Search a keyword"
                 />
               </Col>
             </Form.Group>
