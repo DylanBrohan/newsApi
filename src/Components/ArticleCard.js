@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, Row, Col } from "react-bootstrap";
+import { Card } from "react-bootstrap";
 import PropTypes from "prop-types";
 
 class ArticleCard extends React.Component {
@@ -9,17 +9,10 @@ class ArticleCard extends React.Component {
 
   render() {
     return (
-      <table key={this.props.news.id}>
-        <tbody>
-          <tr>
-            <td>
-              <Row>
-                <Col />
-                <Col xs={8}>
                   <Card>
-                    <Card.Img variant="top" src={this.props.news.urlToImage} />
+                    <Card.Img className="image-card" variant="top" src={this.props.news.urlToImage} />
                     <Card.Body>
-                      <Card.Title>{this.props.news.title}</Card.Title>
+                            <Card.Title>{this.props.news.title}</Card.Title>
                       <Card.Subtitle className="mb-2 text-muted">
                         {this.props.news.author}, {this.props.news.publishedAt}
                       </Card.Subtitle>
@@ -30,13 +23,6 @@ class ArticleCard extends React.Component {
                       </Card.Link>
                     </Card.Body>
                   </Card>
-                </Col>
-                <Col />
-              </Row>
-            </td>
-          </tr>
-        </tbody>
-      </table>
     );
   }
 }

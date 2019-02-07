@@ -5,8 +5,12 @@
   padding-left: 16px;
 }
 
-.search {
+.image-card{
+   height: auto
 }
+/* .search-bar {
+  width: 18rem
+} */
 
 .App {
   text-align: center;

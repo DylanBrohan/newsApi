@@ -2,7 +2,8 @@ import "./Style/App.css";
 import ArticleCard from "./Components/ArticleCard";
 
 import React, { Component } from "react";
-import { Form, Container, Col, Row } from "react-bootstrap";
+
+import { Form, Container, Col, Row, CardColumns } from "react-bootstrap";
 
 import $ from "jquery";
 
@@ -13,12 +14,13 @@ class App extends Component {
       sort: "no"
     };
     const searchTerm = "";
-    this.componentDidMount(searchTerm);
+    const source = "country=ie&"
+    this.componentDidMount(searchTerm, source);
   }
 
   componentDidMount(searchTerm, source) {
     const urlString =
-      "https://newsapi.org/v2/top-headlines?country=ie&apiKey=e2f6cea63beb4204b7034dc0764d542e&q=" +
+      "https://newsapi.org/v2/top-headlines?"+source+"apiKey=e2f6cea63beb4204b7034dc0764d542e&q=" +
       searchTerm;
     $.ajax({
       url: urlString,
@@ -35,9 +37,9 @@ class App extends Component {
           // console.log(article.title)
           const news = (
             <ArticleCard
-              key={article.title + article.urlToImg}
-              news={article}
-            />
+            key={article.title + article.urlToImg}
+            news={article}
+          />
           );
           articleList.push(news);
         });
@@ -66,7 +68,7 @@ class App extends Component {
         <Container>
           <Form>
             <Form.Group as={Row}>
-              <Col>
+              <Col xs={{span: 8, offset: 2}}>
                 <Form.Control
                   defaultValue=""
                   onChange={this.handleChange.bind(this)}
@@ -75,7 +77,7 @@ class App extends Component {
               </Col>
             </Form.Group>
           </Form>
-          {this.state.rows}
+          <CardColumns>{this.state.rows}</CardColumns>
         </Container>
       </div>
     );

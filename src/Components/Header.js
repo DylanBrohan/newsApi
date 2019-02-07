@@ -5,7 +5,7 @@ class Header extends React.Component {
   render() {
     return (
       <Navbar bg="dark" expand="lg" variant="dark">
-        <Navbar.Brand href="#home">News Room</Navbar.Brand>
+        <Navbar.Brand href="/">News Room | </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="mr-auto">
